@@ -1,0 +1,32 @@
+---
+references:
+  - "File: /Basic/TwoSumTwoPointer.js"
+generationTime: 2026-07-04T09:51:39.745Z
+---
+flowchart TD
+    A["Start Function"] --> B{Check Condition}
+    B -->|Yes| C["Process Data"]
+    B -->|No| D["Handle Error"]
+    C --> E[(Save to DB)]
+    E --> F["Return Success"]
+    D --> G["Log Error"]
+
+    %% TwoSum function flow
+    F -.-> H[["Call twoSum(nums, target)"]]
+    subgraph "twoSum Function Flow"
+        direction TB
+        H[["Call twoSum(nums, target)"]] --> I["Create 'sorted' array: map to {v,i} and sort by v"]
+        I --> J{"While 'l < r'?"}
+        J -->|Yes| K["Compute 's = sorted[l].v + sorted[r].v'"]
+        J -->|No| Q["Return '[]' (fallback)"]
+        K --> L{"'s === target'?"}
+        L -->|Yes| M["Return '[sorted[l].i, sorted[r].i]'"]
+        L -->|No| N{"'s < target'?"}
+        N -->|Yes| O["Increment 'l' (l++)"]
+        N -->|No| P["Decrement 'r' (r--)"]
+        O --> J
+        P --> J
+        M --> R["Log/Output result via 'console.log' (test cases)"]
+        Q --> R
+        R --> S["End"]
+    end
