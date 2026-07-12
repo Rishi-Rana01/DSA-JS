@@ -1,4 +1,4 @@
-
+// Three Sum = 0
 
 function threeSum(nums) {
 
@@ -10,9 +10,9 @@ function threeSum(nums) {
 
         //optimisation
 
-        if (nums[i] > 0) break;
+        if (nums[i] > 0) break; // Then next two pointer also points to +ve value then sum never zero
 
-        if (i > 0 && nums[i] == nums[i - 1]) continue;
+        if (i > 0 && nums[i] == nums[i - 1]) continue; 
 
         let left = i + 1;
         let right = nums.length - 1;
